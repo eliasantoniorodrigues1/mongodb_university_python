@@ -1,0 +1,1 @@
+mongosh "mongodb+srv://cursemongodbasics.9w17tyv.mongodb.net/myFirstDatabase" --apiVersion 1 --username leleuf3
