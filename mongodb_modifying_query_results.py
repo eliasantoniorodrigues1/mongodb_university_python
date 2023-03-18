@@ -15,3 +15,6 @@ cursor = db.companies.find(query, projection)
 # 1 ascending | -1 descending
 r = list(cursor.sort('name', 1))
 printer.pprint(r)
+
+# test
+
