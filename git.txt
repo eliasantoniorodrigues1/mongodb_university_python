@@ -1,0 +1,2 @@
+# to allow you perform a git pull with differents commits
+git pull origin main --allow-unrelated-histories
