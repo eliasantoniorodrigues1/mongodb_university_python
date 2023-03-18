@@ -1,2 +1,5 @@
 # to allow you perform a git pull with differents commits
 git pull origin main --allow-unrelated-histories
+
+# change remote origin
+git remote set-url https://new_url_repo

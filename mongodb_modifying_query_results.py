@@ -9,12 +9,16 @@ db = client['sample_training']
 
 query = {'category_code': 'music'}
 sort = 'name', 1
-projection = {'name': 1}
+projection = {'name': 1, 'number_of_employees': 1}
 cursor = db.companies.find(query, projection)
 # in python you need to send the field name and the order
 # 1 ascending | -1 descending
-r = list(cursor.sort('name', 1))
-printer.pprint(r)
+# capital letters will be organized first and lower letters after
 
-# test
+# r = list(cursor.sort('name', 1))
+# printer.pprint(r)
 
+# limit result
+for r in db.companies.find(query, projection).sort('number_of_employees',
+                                                   -1).limit(5):
+    print(r)
