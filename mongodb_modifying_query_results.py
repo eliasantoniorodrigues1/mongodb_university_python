@@ -22,3 +22,6 @@ cursor = db.companies.find(query, projection)
 for r in db.companies.find(query, projection).sort('number_of_employees',
                                                    -1).limit(5):
     print(r)
+
+# sort | projections | count_documents
+print(db.companies.count_documents(query))
