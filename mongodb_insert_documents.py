@@ -3,6 +3,13 @@ import os
 
 from dotenv import load_dotenv
 from pymongo import MongoClient
+from bson.objectid import ObjectId
+import pprint
+import datetime
+import os
+
+from dotenv import load_dotenv
+from pymongo import MongoClient
 
 # load config from .env file
 load_dotenv()
@@ -57,5 +64,25 @@ document_ids = result2.inserted_ids
 print("# of documents inserted: " + str(len(document_ids)))
 print(f"_ids of inserted documents: {document_ids}")
 
+
+client.close()
+
+# load config from .env file
+load_dotenv()
+MONGODB_URI = os.environ['MONGODB_URI_LOCAL']
+
+# connect to MongoDB cluster with MongoClient
+client = MongoClient(MONGODB_URI)
+
+# get reference to 'bank' database
+db = client.bank
+
+# get reference to accounts collection
+accounts_collection = db.bank
+
+# filter
+document_to_find = {'_id': ObjectId('641ba4c863d0d2e41555d5e3')}
+result = accounts_collection.find_one()
+pprint.pprint(result)
 
 client.close()
